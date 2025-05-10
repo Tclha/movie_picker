@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:movie_picker/home/home_page.dart';
+import 'navigation/routes.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final _appRouter = AppRouter();
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: _appRouter.config(),
       title: 'Movie picker',
       theme: ThemeData(
         colorScheme: ColorScheme.dark(),
         useMaterial3: true,
       ),
-      home: const HomePage(),
     );
   }
 }
